@@ -2,7 +2,7 @@
 
 using std::string;
 
-class Vertex {
+class Airport {
   
   public:
     string name; 
@@ -11,29 +11,29 @@ class Vertex {
     double longitude;
 
     /**
-     * Default constructor.
+     * @brief Default constructor.
      */
-    Vertex() : name(""), ID(""), latitude(-1), longitude(-1) { 
+    Airport() : name(""), ID(""), latitude(-1), longitude(-1) { 
       // nothing
     }
 
     /**
-     * Parameter constructor for vertices
+     * @brief Parameter constructor for airports.
      * @param nm - airport's name
      * @param id - airport's id
      * @param lat - airport's latitude
      * @param lon - airport's longitude
      */
-    Vertex(string nm, string id, double lat, double lon)
+    Airport(string nm, string id, double lat, double lon)
       : name(nm), ID(id), latitude(lat), longitude(lon) {
         // nothing
     }
 
     /**
-     * Compares two vertices
-     * @param other - the vertex to compare with
+     * @brief Compare two airports.
+     * @param other - the airport to compare with
      */
-    bool operator==(Vertex& other) const
+    bool operator==(Airport& other) const
     {
         if (this->name != other.name)
             return false;

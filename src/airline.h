@@ -1,50 +1,50 @@
 #include <string>
-#include "vertex.h"
+#include "airport.h"
 
 using std::string;
 
-class Edge {
+class Airline {
 
   public:
-    Vertex source;
-    Vertex destination;
+    Airport source;
+    Airport destination;
     double weight;
     string label;
 
     /**
-     * Default constructor.
+     * @brief Default constructor.
      */
-    Edge() : weight(-1), label("") { 
+    Airline() : weight(-1), label("") { 
       // nothing
     }
 
     /**
-     * Parameter constructor for edges
+     * @brief Parameter constructor for airlines.
      * @param sc - one airport of an airline
      * @param dest - the other airport of an airline
      * @param wei - airline distance
      * @param lbl - airline name
      */
-    Edge(Vertex sc, Vertex dst, double wei, string lbl)
+    Airline(Airport sc, Airport dst, double wei, string lbl)
       : source(sc), destination(dst), weight(wei), label(lbl) {
         // nothing
     }
 
     /**
-     * Compares two airlines.
+     * @brief Compare two airlines.
      * @param other - the airline to compare with
      * @return whether the current airline is shorter than the parameter airline
      */
-    bool operator<(const Edge& other) const
+    bool operator<(const Airline& other) const
     {
         return weight < other.weight;
     }
 
     /**
-     * Compares source and destination.
-     * @param other - the airport edge to compare with
+     * @brief Compare source and destination.
+     * @param other - the airline to compare with
      */
-    bool operator==(Edge& other) const
+    bool operator==(Airline& other) const
     {
         if (!(this->source == other.source))
             return false;
