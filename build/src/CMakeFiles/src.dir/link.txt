@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsrc.a CMakeFiles/src.dir/airline.cpp.o CMakeFiles/src.dir/airport.cpp.o CMakeFiles/src.dir/airportgraph.cpp.o CMakeFiles/src.dir/bfs.cpp.o
+/usr/bin/ranlib libsrc.a

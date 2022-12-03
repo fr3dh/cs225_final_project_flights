@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include "airport.h"
 
@@ -6,10 +7,7 @@ using std::string;
 class Airline {
 
   public:
-    Airport source;
-    Airport destination;
-    double weight;
-    string label;
+    
 
     /**
      * @brief Default constructor.
@@ -35,22 +33,32 @@ class Airline {
      * @param other - the airline to compare with
      * @return whether the current airline is shorter than the parameter airline
      */
-    bool operator<(const Airline& other) const
-    {
-        return weight < other.weight;
-    }
+    bool operator<( const Airline& other) const {return this->weight < other.weight;}
+
 
     /**
      * @brief Compare source and destination.
      * @param other - the airline to compare with
      */
-    bool operator==(Airline& other) const
-    {
+    bool operator==(const Airline& other) const {
         if (!(this->source == other.source))
             return false;
         if (!(this->destination == other.destination))
             return false;
         return true;
     }
-
+    
+    void setSource(Airport sour);
+    void setDestination(Airport dest);
+    void setWeight(double wei);
+    void setLabel(string lab);
+    Airport getSource();
+    Airport getDestination();
+    double getWeight() ;
+    string getLabel() ;
+  private: 
+    Airport source;
+    Airport destination;
+    double weight;
+    string label;
 };

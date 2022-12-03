@@ -1,5 +1,10 @@
 #include <string>
 #include <vector>
+#include <sstream>
+#include <fstream>
+#include <iostream>
+#include <cmath>
+#include <algorithm>
 #include <map>
 #include "airport.h"
 #include "airline.h"
@@ -15,6 +20,35 @@ class AirportGraph {
      * @brief Constructor to create an empty airport graph.
      */
     AirportGraph();
+
+    /**
+     * @brief Constructor to create an airport graph.
+     * @param airportFileName - name of the airport file to generate the graph
+     * @param airlineFileName - name of the airline file to generate the graph
+     */
+    AirportGraph(string const & airportFileName, string const & airlineFileName);
+
+    /**
+     * @brief Insert all airports in the graph.
+     * @param airportFileName - name of the airport file to generate the graph
+     */
+    void insertAllAirports(string const & airportFileName);
+
+    /**
+     * @brief Insert all airlines in the graph.
+     * @param airlineFileName - name of the airline file to generate the graph
+     */
+    void insertAllAirlines(string const & airlineFileName);
+
+    //Use as reference from GeeksforGeeks.
+    double calculateWeight(int sourceId, int destinationId);
+
+    /**
+     * @brief Get airport from the given id.
+     * @param id - id of the airport we want to find
+     * @return an airport
+     */
+    Airport getAirportFromId(string id);
 
     /**
      * @brief Get all adjacent airports to the parameter airport.
@@ -85,6 +119,9 @@ class AirportGraph {
      *         - if not, return false
      */
     bool removeAirline(Airport source, Airport destination);
+
+    /*BFS Traversal*/
+    void BFS(Airport source);
 
   private:
     mutable map<Airport, map<Airport, Airline>> airport_graph;

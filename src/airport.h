@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 
 using std::string;
@@ -5,10 +6,7 @@ using std::string;
 class Airport {
   
   public:
-    string name; 
-    string ID;
-    double latitude;
-    double longitude;
+    
 
     /**
      * @brief Default constructor.
@@ -33,13 +31,31 @@ class Airport {
      * @brief Compare two airports.
      * @param other - the airport to compare with
      */
-    bool operator==(Airport& other) const
-    {
-        if (this->name != other.name)
+     bool operator==( const Airport& other)  const {
+       if (this->name != other.name)
             return false;
         if (this->ID != other.ID)
             return false;
         return true;
-    }
+     }
+     
+     bool operator<(const Airport& other) const {
+      if (this->latitude < other.latitude) return false;
+      return true;
+     }
+
+     void setName(string n);
+     void setID(string id);
+     void setLatitude(double lati);
+     void setLongitude(double longi);
+     string getName();
+     string getID() ;
+     double getLatitude();
+     double getLongitude();
+  private:
+    string name; 
+    string ID;
+    double latitude;
+    double longitude;
 
 };
