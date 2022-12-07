@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 
 using std::string;
@@ -33,13 +34,14 @@ class Airport {
      * @brief Compare two airports.
      * @param other - the airport to compare with
      */
-    bool operator==(Airport& other) const
-    {
-        if (this->name != other.name)
-            return false;
-        if (this->ID != other.ID)
-            return false;
-        return true;
+    bool operator==(const Airport& other) const {
+      if (this->name != other.name) return false;
+      if (this->ID != other.ID) return false;
+      return true;
     }
 
+    // useless, don't know why
+    bool operator<(const Airport& other) const {
+      return true;
+    } 
 };

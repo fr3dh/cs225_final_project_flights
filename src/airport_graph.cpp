@@ -79,6 +79,7 @@ bool AirportGraph::insertAirline(Airport source, Airport destination, double wei
   if (!airportExists(source)) airport_graph[source] = map<Airport, Airline>();
 
   airport_graph[source][destination] = Airline(source, destination, weight, label);
+  return true;
 }
 
 bool AirportGraph::removeAirline(Airport source, Airport destination) {
@@ -87,4 +88,5 @@ bool AirportGraph::removeAirline(Airport source, Airport destination) {
   if (!airlineExists(source, destination)) return false;
 
   airport_graph[source].erase(destination);
+  return true;
 }
