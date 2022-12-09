@@ -133,20 +133,23 @@ void heap<T, Compare>::push(const T& elem)
 }
 
 template <class T, class Compare>
-void heap<T, Compare>::updateElem(const size_t & idx, const T& elem)
+void heap<T, Compare>::updateElem(const T& old, const T& elem)
 {
     // @TODO In-place updates the value stored in the heap array at idx
     // Corrects the heap to remain as a valid heap even after update
+    typename std::vector<T>::iterator iter = std::find(_elems.begin(), _elems.end(), old);
+    if (iter == _elems.cend()) {
+        return;
+    }
+    size_t idx = std::distance(_elems.begin(), iter);
     T tmp = _elems[idx];
     _elems[idx] = elem;
     if (higherPriority(elem, tmp)) {
         heapifyUp(idx);
     } else {
         heapifyDown(idx);
-    }
-    
+    }  
 }
-
 
 template <class T, class Compare>
 bool heap<T, Compare>::empty() const

@@ -7,6 +7,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 // forward declare descriptor (used for printing, ignore)
 template <class Type, class Comp>
@@ -69,7 +70,7 @@ class heap
      * using either zero or one-indexed heaps)
      * @param elem The element to be updated with.
      */
-    void updateElem(const size_t & idx, const T& elem);
+    void updateElem(const T& old, const T& elem);
 
     /**
      * Determines if the given heap is empty.
@@ -90,8 +91,6 @@ class heap
      * @return The index of the root node of the heap.
      */
     size_t root() const;
-
-    T removeMin();
 
     /**
      * Prints the heap to an std::ostream. Given for you. Uses the helper
@@ -199,4 +198,5 @@ class heap
      *  bubbled up the tree.
      */
     void heapifyUp(size_t currentIdx);
+
 };

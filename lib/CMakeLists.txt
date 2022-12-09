@@ -19,16 +19,16 @@ set(utils_dir ${lib_dir}/utils)
 file(GLOB_RECURSE utils_sources CONFIGURE_DEPENDS ${utils_dir}/*.cpp)
 add_library(utils ${utils_sources})
 target_include_directories(utils PRIVATE ${lib_dir})
-target_link_libraries(utils PRIVATE lodepng)
+target_link_libraries(utils PRIVATE cs225 lodepng)
 
 # Add heap library.
 set(heap_dir ${lib_dir}/heap)
-file(GLOB_RECURSE utils_sources CONFIGURE_DEPENDS ${heap_dir}/*.cpp)
+file(GLOB_RECURSE heap_sources CONFIGURE_DEPENDS ${heap_dir}/*.cpp)
 add_library(heap ${heap_sources})
 target_include_directories(heap PRIVATE ${lib_dir})
-target_link_libraries(heap PRIVATE lodepng)
+target_link_libraries(heap PRIVATE utils cs225 lodepng)
 
 # Add overall libs library.
 add_library(libs INTERFACE)
 target_include_directories(libs INTERFACE ${lib_dir})
-target_link_libraries(libs INTERFACE cs225)
+target_link_libraries(libs INTERFACE cs225 utils heap)
