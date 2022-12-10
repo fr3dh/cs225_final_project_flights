@@ -1,9 +1,10 @@
+#pragma once
+
 #include <iostream>
 #include <limits>
 #include <string>
 #include <set>
 #include "airport_graph.h"
-#include "../lib/heap/heap.h"
 
 using std::string;
 using std::pair;
@@ -32,8 +33,6 @@ class Dijkstra {
      * @param 
      */
     int betweennessCentrality(Airport airport);
-
-    const static Airport InvalidAirport;
 
   private:
 

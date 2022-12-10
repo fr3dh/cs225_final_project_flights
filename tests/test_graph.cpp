@@ -29,5 +29,4 @@ TEST_CASE("airline base case") {
   REQUIRE(graph.airlineExists(a,b) == true);
   REQUIRE(graph.airlineExists(a,c) == true);
   REQUIRE(graph.airlineExists(b,c) == true);
-  
 }

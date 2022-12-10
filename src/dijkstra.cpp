@@ -1,4 +1,6 @@
 #include "dijkstra.h"
+#include "../lib/heap/heap.cpp"
+#include <iostream>
 
 Dijkstra::Dijkstra(AirportGraph graph, Airport start) {
 
@@ -9,7 +11,7 @@ Dijkstra::Dijkstra(AirportGraph graph, Airport start) {
   vector<Airport> airports = graph.getAirports();
   for (auto airport : airports) {
     distances_.insert(pair<Airport, double>(airport, numeric_limits<double>::infinity()));
-    prevs_.insert(pair<Airport, Airport>(airport, InvalidAirport));
+    prevs_.insert(pair<Airport, Airport>(airport, airport));
   }
   distances_[start] = 0.0;
 
@@ -40,6 +42,7 @@ vector<Airport> Dijkstra::shortestPath(Airport end) {
 
   Airport curr = end;
   vector<Airport> inversed_path;
+
   while (!(curr == start_)) {
     inversed_path.push_back(curr);
     curr = prevs_[curr];
@@ -47,9 +50,10 @@ vector<Airport> Dijkstra::shortestPath(Airport end) {
   inversed_path.push_back(start_);
 
   vector<Airport> path;
-  for (size_t i = inversed_path.size()-1; i >= 0; i--) {
+  for (size_t i = inversed_path.size()-1; i > 0; i--) {
     path.push_back(inversed_path[i]);
   }
+  path.push_back(inversed_path[0]);
 
   return path;
 }
