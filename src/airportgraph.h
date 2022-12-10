@@ -8,6 +8,7 @@
 #include <map>
 #include "airport.h"
 #include "airline.h"
+#include "utils/utils.h"
 
 using std::string;
 using std::vector;
@@ -19,6 +20,7 @@ class AirportGraph {
     /**
      * @brief Constructor to create an empty airport graph.
      */
+    
     AirportGraph();
 
     /**
@@ -41,20 +43,21 @@ class AirportGraph {
     void insertAllAirlines(string const & airlineFileName);
 
     //Use as reference from GeeksforGeeks.
-    double calculateWeight(int sourceId, int destinationId);
+    double calculateWeight(int sourceId,string sourcecode,  int destinationId, string destinationcode);
 
     /**
      * @brief Get airport from the given id.
      * @param id - id of the airport we want to find
+     * @param code - IATA/ICAO of the airport we want to find
      * @return an airport
      */
-    Airport getAirportFromId(string id);
+    Airport getAirportFromId(string id, string code);
 
     /**
      * @brief Get all adjacent airports to the parameter airport.
      * @param airport - airport to get neighbors from
      * @return a vector of airports
-     */
+     */ 
     vector<Airport> getAdjacent(Airport airport) const;
     
     /**
@@ -120,10 +123,21 @@ class AirportGraph {
      */
     bool removeAirline(Airport source, Airport destination);
 
+    double stringToDouble(const std::string & s);
+    int stringToInt(const std::string & s);
     /*BFS Traversal*/
-    void BFS(Airport source);
+    void BFS(vector<bool> *visited, Airport source);
+    int BFS();
+     
+    //graph clean
+    //void clean();
+
+    /*test*/
+    map<Airport, map<Airport, Airline>> getMap() {return airport_graph;}
 
   private:
     mutable map<Airport, map<Airport, Airline>> airport_graph;
-
+    vector<Airport> airports;
+    //map<pair<Airport, Airport>, Airline> airlines;
+    
 };

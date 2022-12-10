@@ -32,6 +32,7 @@ class Airport {
      * @param other - the airport to compare with
      */
      bool operator==( const Airport& other)  const {
+
        if (this->name != other.name)
             return false;
         if (this->ID != other.ID)
@@ -48,14 +49,19 @@ class Airport {
      void setID(string id);
      void setLatitude(double lati);
      void setLongitude(double longi);
-     string getName();
-     string getID() ;
-     double getLatitude();
-     double getLongitude();
+     void setIATA(string ia);
+     void setICAO(string ic);
+     string getName() const;
+     string getID() const;
+     double getLatitude() const;
+     double getLongitude() const;
+     string getIATA() const;
+     string getICAO() const;
   private:
     string name; 
     string ID;
     double latitude;
     double longitude;
-
+    string iata;
+    string icao;
 };

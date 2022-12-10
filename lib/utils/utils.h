@@ -2,7 +2,9 @@
 #include <vector>
 #include <fstream>
 
-/**
+
+    
+    /**
  * @brief Take a filename and read in all the text from the file.
  * @param filename The name of the file that will fill the string
  * @return A string containing the whole text of the given file
@@ -17,6 +19,7 @@ std::string file_to_string(const std::string & filename);
 std::string TrimRight(const std::string & str);
 std::string TrimLeft(const std::string & str);
 std::string Trim(const std::string & str);
+std::string TrimChar(const std::string & str, char toremove);
 
 /**
  * @brief Given a string and character, split the string by the character and store in a vector
@@ -31,3 +34,5 @@ std::string Trim(const std::string & str);
  * @return The number of substrings created
  */
 int SplitString(const std::string & str1, char sep, std::vector<std::string> &fields);
+
+

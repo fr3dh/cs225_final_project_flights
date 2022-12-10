@@ -27,7 +27,7 @@ class Airline {
       : source(sc), destination(dst), weight(wei), label(lbl) {
         // nothing
     }
-
+    
     /**
      * @brief Compare two airlines.
      * @param other - the airline to compare with
@@ -52,13 +52,16 @@ class Airline {
     void setDestination(Airport dest);
     void setWeight(double wei);
     void setLabel(string lab);
+    void setID(string id) {routeid = id;}
     Airport getSource();
     Airport getDestination();
     double getWeight() ;
     string getLabel() ;
+    string getRouteID() {return routeid;}
   private: 
     Airport source;
     Airport destination;
     double weight;
     string label;
+    string routeid;
 };

@@ -1,5 +1,7 @@
 #include "utils.h"
 #include <sstream>
+#include <string>
+#include <algorithm>
 
 std::string file_to_string(const std::string& filename){
   std::ifstream text(filename);
@@ -24,6 +26,13 @@ std::string TrimLeft(const std::string & str) {
 std::string Trim(const std::string & str) {
     std::string tmp = str;
     return TrimLeft(TrimRight(str));
+}
+
+std::string TrimChar(const std::string & str, char toremove) {
+    std::string tmp = str;
+    
+    tmp.erase(remove(tmp.begin(), tmp.end(), toremove), tmp.end());
+    return tmp;
 }
 
 int SplitString(const std::string & str1, char sep, std::vector<std::string> &fields) {

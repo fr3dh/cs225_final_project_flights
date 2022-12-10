@@ -1,12 +1,14 @@
 #include <catch2/catch_test_macros.hpp>
 
 #include "airport.h"
-
+#include <iostream>
+using namespace std;
 
 TEST_CASE("aiport operator","[airport]") {
     Airport a("Kugaaruk Airport","Pelly Bay", 68.534401,-89.808098);
     Airport b("Kugaaruk Airport","Pelly Bay",49.13249969482422,-68.20439910888672);
     bool check = a==b;
+    //cout << "here" << endl;
     REQUIRE(check == true);
 }
 TEST_CASE("airport empty constructor", "[airport]") {
