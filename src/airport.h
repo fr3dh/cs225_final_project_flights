@@ -42,6 +42,6 @@ class Airport {
 
     // useless, don't know why
     bool operator<(const Airport& other) const {
-      return false;
+      return ID < other.ID;
     } 
 };

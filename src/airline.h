@@ -38,7 +38,7 @@ class Airline {
      */
     bool operator<(const Airline& other) const
     {
-        return weight < other.weight;
+        return label < other.label;
     }
 
     /**
