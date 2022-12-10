@@ -56,7 +56,7 @@ vector<Airport> Dijkstra::shortestPath(Airport end) {
 
 int Dijkstra::betweennessCentrality(Airport airport) {
   int count = 0;
-  for (const auto& pair : prevs_) {
+  for (auto pair : prevs_) {
     if (pair.second == airport) {
       count++;
     }
