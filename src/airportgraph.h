@@ -43,7 +43,7 @@ class AirportGraph {
     void insertAllAirlines(string const & airlineFileName);
 
     //Use as reference from GeeksforGeeks.
-    double calculateWeight(int sourceId,string sourcecode,  int destinationId, string destinationcode);
+    double calculateWeight(int sourceId, int destinationId);
 
     /**
      * @brief Get airport from the given id.
@@ -51,7 +51,7 @@ class AirportGraph {
      * @param code - IATA/ICAO of the airport we want to find
      * @return an airport
      */
-    Airport getAirportFromId(string id, string code);
+    Airport getAirportFromId(string id );
 
     /**
      * @brief Get all adjacent airports to the parameter airport.
@@ -123,14 +123,17 @@ class AirportGraph {
      */
     bool removeAirline(Airport source, Airport destination);
 
+
+    /*convert string to double and int functions*/
     double stringToDouble(const std::string & s);
     int stringToInt(const std::string & s);
+    
+
     /*BFS Traversal*/
-    void BFS(vector<bool> *visited, Airport source);
+    int BFS(map<Airport, bool> *visited, Airport source);
     int BFS();
      
-    //graph clean
-    //void clean();
+    
 
     /*test*/
     map<Airport, map<Airport, Airline>> getMap() {return airport_graph;}
@@ -138,6 +141,6 @@ class AirportGraph {
   private:
     mutable map<Airport, map<Airport, Airline>> airport_graph;
     vector<Airport> airports;
-    //map<pair<Airport, Airport>, Airline> airlines;
+    
     
 };

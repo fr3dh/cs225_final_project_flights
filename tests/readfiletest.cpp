@@ -26,18 +26,8 @@ TEST_CASE("readfile ", "[readfile]") {
    Airline h = Airline(baker, baie, 2, "3H");
    Airline bb = Airline(cfb, baker, 3, "2B");
 
-   map<Airport, map<Airport, Airline>> map = graph.getMap();
-   for (auto it : map) {
-        Airport here = it.first;
-        cout << here.getName() << ": ";
-        for (auto i : it.second) {
-            Airport th = i.first;
-            Airline t = i.second;
-            cout << "dest airport: " << th.getName() << " | ";
-            cout << "airline id: " << t.getLabel() << " ;;;;  ";
-        }
-        cout << endl;
-   }
+   //map<Airport, map<Airport, Airline>> map = graph.getMap();
+   
    REQUIRE(graph.airportExists(kug) == true);
    REQUIRE(graph.airportExists(baie) == true);
    REQUIRE(graph.airportExists(cfb) == true);
@@ -59,4 +49,24 @@ TEST_CASE("readfile ", "[readfile]") {
    
    
    
+}
+
+TEST_CASE("readfile test2", "[readfile]") {
+   AirportGraph graph = AirportGraph("../tests/airport1.csv", "../tests/airline1.csv");
+  
+    map<Airport, map<Airport, Airline>> map = graph.getMap();
+   for (auto it : map) {
+        Airport here = it.first;
+        cout << "source: " <<  here.name << " -> ";
+        for (auto i : it.second) {
+            Airport th = i.first;
+            Airline t = i.second;
+            cout << "dest airport: " << th.name << " : ";
+            cout << "airline id: " << t.label << " |  ";
+            
+        }
+        cout << endl;
+   }
+   REQUIRE(map.size() == 7);
+
 }

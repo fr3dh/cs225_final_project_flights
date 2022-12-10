@@ -41,27 +41,25 @@ class Airport {
      }
      
      bool operator<(const Airport& other) const {
-      if (this->latitude < other.latitude) return false;
-      return true;
-     }
+      return ID < other.ID;
+    } 
 
-     void setName(string n);
-     void setID(string id);
-     void setLatitude(double lati);
-     void setLongitude(double longi);
-     void setIATA(string ia);
-     void setICAO(string ic);
-     string getName() const;
-     string getID() const;
-     double getLatitude() const;
-     double getLongitude() const;
-     string getIATA() const;
-     string getICAO() const;
-  private:
+    //  void setName(string n);
+    //  void setID(string id);
+    //  void setLatitude(double lati);
+    //  void setLongitude(double longi);
+    //  void setIATA(string ia);
+    //  void setICAO(string ic);
+    //  string getName() const;
+    //  string getID() const;
+    //  double getLatitude() const;
+    //  double getLongitude() const;
+    //  string getIATA() const;
+    //  string getICAO() const;
+
     string name; 
     string ID;
     double latitude;
     double longitude;
-    string iata;
-    string icao;
+   
 };
