@@ -34,7 +34,7 @@ It stores two files: data for all the airports, and data for all the airlines.
 
 > Running Instruction
 
-Put the **cs225_final_project_flights** folder in to your cs225 development folder. Open the terminal on the root directory and type the following commands:
+Go to cs225_final_project_flights directory and run the following commands:
 
 $ mkdir build
 
