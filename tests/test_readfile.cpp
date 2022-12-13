@@ -69,6 +69,18 @@ TEST_CASE("readfile-large", "[readfile]") {
    REQUIRE(graph.airlineExists(baie, cfb) == true);
 }
 
+TEST_CASE("readfile 500" , "[readfile]") {
+   AirportGraph graph = AirportGraph("../tests/airports500.csv", "../tests/routes500.csv");
+   map<Airport, map<Airport,Airline>> map = graph.getMap();
+   cout << map.size() << endl;
+ 
+   Airport hk = Airport("Hong Kong International Airport", "3077", 22.3089, 113.9150);
+   Airport ohare = Airport("Chicago O'Hare International Airport", "3830", 41.9786, -87.9048);
+   REQUIRE((int)map.size() == 572);
+   REQUIRE(graph.airportExists(hk) == true);
+   REQUIRE(graph.airportExists(ohare) == true);
+}
+
 TEST_CASE("readfile 1000", "[readfile]") {
    AirportGraph graph = AirportGraph("../tests/airports1000.csv", "../tests/routes1000.csv");
 

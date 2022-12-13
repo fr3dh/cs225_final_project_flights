@@ -2,7 +2,7 @@
 #include <catch2/catch_test_macros.hpp>
 using namespace std;
 
-TEST_CASE("dijkstra base case") {
+TEST_CASE("dijkstra base case", "[dijkstra]") {
   AirportGraph graph;
   Airport a("Kugaaruk Airport", "1", 1.0, 1.0);
   Airport b("Baie Comeau Airport", "2", 2.0, 2.0);
@@ -58,17 +58,17 @@ TEST_CASE("dijkstra 50" , " [dijkstra]") {
   REQUIRE(shortest == check);
 }
 
-TEST_CASE("dijkstra 500", "[dijkstra]") {
-  AirportGraph graph = AirportGraph("../tests/airports500.csv", "../tests/routes500.csv");
-  map<Airport, map<Airport,Airline>> map = graph.getMap();
-  cout << map.size() << endl;
+// TEST_CASE("dijkstra 500", "[dijkstra]") {
+//   AirportGraph graph = AirportGraph("../tests/airports500.csv", "../tests/routes500.csv");
+//   map<Airport, map<Airport,Airline>> map = graph.getMap();
+//   cout << map.size() << endl;
  
-  Airport hk = Airport("Hong Kong International Airport", "3077", 22.3089, 113.9150);
-  Airport ohare = Airport("Chicago O'Hare International Airport", "3830", 41.9786, -87.9048);
+//   Airport hk = Airport("Hong Kong International Airport", "3077", 22.3089, 113.9150);
+//   Airport ohare = Airport("Chicago O'Hare International Airport", "3830", 41.9786, -87.9048);
 
-  Dijkstra dijk(graph, ohare);
-  vector<Airport> shortest = dijk.shortestPath(hk);
+//   Dijkstra dijk(graph, ohare);
+//   vector<Airport> shortest = dijk.shortestPath(hk);
 
-  cout << shortest.size() << endl;
-}
+//   cout << shortest.size() << endl;
+// }
 

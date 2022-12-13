@@ -71,7 +71,7 @@ TEST_CASE("visualization sample size 1000 drawairport", "[visualization]") {
 TEST_CASE("visualization sample size 1000 drawairline", "[visualization]") {
     Visualization visualization("../tests/airports1000.csv", "../tests/routes1000.csv");
 
-    Airport hk = Airport("Hong Kong International Airport", "3077", 22.3089, 113.9150);
+    Airport alice = Airport("Alice Springs Airport", "3319", -23.8067, 153.1170);
     Airport ohare = Airport("Chicago O'Hare International Airport", "3830", 41.9786, -87.9048);
 
     string file = "drawairline1000.png";
@@ -80,9 +80,9 @@ TEST_CASE("visualization sample size 1000 drawairline", "[visualization]") {
     visualization.drawAirport(image);
     
     int count = 0;
-    visualization.drawAirline(ohare, hk, count, image);
+    visualization.drawAirline(ohare, alice, count, image);
     Point oh = visualization.convert(ohare);
-    Point h = visualization.convert(hk);
+    Point h = visualization.convert(alice);
     visualization.addicon(oh, h, image);
     image.writeToFile("../images/" + file);
 
@@ -135,27 +135,27 @@ TEST_CASE("visualization sample size 1000 drawallairlines", "[visualization]") {
     
 }
 
-// TEST_CASE("visualization all", "[visualization]") {
-//     Visualization visualization("../data/airports.csv", "../data/routes.csv");
+TEST_CASE("visualization all", "[visualization]") {
+    Visualization visualization("../data/airports.csv", "../data/routes.csv");
 
-//     Airport hk = Airport("Hong Kong International Airport", "3077", 22.3089, 113.9150);
-//     Airport ohare = Airport("Chicago O'Hare International Airport", "3830", 41.9786, -87.9048);
+    Airport hk = Airport("Hong Kong International Airport", "3077", 22.3089, 113.9150);
+    Airport ohare = Airport("Chicago O'Hare International Airport", "3830", 41.9786, -87.9048);
 
-//     string file = "drawallairports.png";
-//     PNG image;
-//     image.readFromFile("../tests/open.png");
-//     visualization.drawAirport(image);
-//     image.writeToFile("../images/" + file);
+    string file = "drawallairports.png";
+    PNG image;
+    image.readFromFile("../tests/open.png");
+    visualization.drawAirport(image);
+    image.writeToFile("../images/" + file);
 
-//     // string file2 = "tohome.png";
-//     // visualization.drawShortest(ohare, hk, file2);
+    // string file2 = "tohome.png";
+    // visualization.drawShortest(ohare, hk, file2);
     
-//     string file3 = "allroutes.png";
-//     string file4 = "allroutes.gif";
-//     visualization.drawAllAirlines(file3, file4);
+    string file3 = "allroutes.png";
+    string file4 = "allroutes.gif";
+    visualization.drawAllAirlines(file3, file4);
 
-//     string file1 = "plays.gif";
-//     visualization.play("../images/"+file1);
+    string file1 = "plays.gif";
+    visualization.play("../images/"+file1);
 
 
-// }
+}
