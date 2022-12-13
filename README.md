@@ -31,7 +31,7 @@ It stores two files: data for all the airports, and data for all the airlines.
 **Images:** Storing all the images generated from visualization test cases and main command.
 
 # Running Instructions
-> Running Instruction
+> Compiling Instruction
 
 Go to cs225_final_project_flights directory and run the following commands:
 
