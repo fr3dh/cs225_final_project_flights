@@ -32,6 +32,18 @@ It stores two files: data for all the airports, and data for all the airlines.
 
 # Running Instructions
 
+> Running Instruction
+
+Put the **cs225_final_project_flights** folder in to your cs225 development folder. Open the terminal on the root directory and type the following commands:
+
+$ mkdir build
+
+$ cd build
+
+$ cmake..
+
+$ make
+
 > Test Cases Running
 
 The envrionment is built based on the cmakelist from cs225 and we utilize the docker file containers. 
