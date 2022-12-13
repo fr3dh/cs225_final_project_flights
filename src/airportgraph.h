@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include <vector>
 #include <sstream>
@@ -124,23 +125,34 @@ class AirportGraph {
     bool removeAirline(Airport source, Airport destination);
 
 
-    /*convert string to double and int functions*/
-    double stringToDouble(const std::string & s);
+    /**
+     * @brief convert string to int.
+     * @param s - string to be converted
+     * @return -return the converted int
+     */
     int stringToInt(const std::string & s);
+
+     /**
+     * @brief convert string to double.
+     * @param s - string to be converted
+     * @return -return the converted double
+     */
+    double stringToDouble(const std::string & s);
+    
     
 
-    /*BFS Traversal*/
-    int BFS(map<Airport, bool> *visited, Airport source);
-    int BFS();
+    
      
     
 
-    /*test*/
+    /**
+     * @brief get function for airport_graph.
+     * @return private variable airport_graph
+     */
     map<Airport, map<Airport, Airline>> getMap() {return airport_graph;}
 
   private:
     mutable map<Airport, map<Airport, Airline>> airport_graph;
-    vector<Airport> airports;
     
     
 };

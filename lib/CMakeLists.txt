@@ -21,8 +21,22 @@ add_library(utils ${utils_sources})
 target_include_directories(utils PRIVATE ${lib_dir})
 target_link_libraries(utils PRIVATE cs225 lodepng)
 
+# Add heap library.
+set(heap_dir ${lib_dir}/heap)
+file(GLOB_RECURSE heap_sources CONFIGURE_DEPENDS ${heap_dir}/*.cpp)
+add_library(heap ${heap_sources})
+target_include_directories(heap PRIVATE ${lib_dir})
+target_link_libraries(heap PRIVATE utils cs225 lodepng)
+
+# Add animation library.
+set(animation_dir ${lib_dir}/animation)
+file(GLOB_RECURSE animation_sources CONFIGURE_DEPENDS ${animation_dir}/*.cpp)
+add_library(animation ${animation_sources})
+target_include_directories(animation PRIVATE ${lib_dir})
+target_link_libraries(animation PRIVATE heap utils cs225 lodepng)
+
 
 # Add overall libs library.
 add_library(libs INTERFACE)
 target_include_directories(libs INTERFACE ${lib_dir})
-target_link_libraries(libs INTERFACE cs225 utils)
+target_link_libraries(libs INTERFACE cs225 utils heap animation)
